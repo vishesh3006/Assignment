@@ -1,34 +1,47 @@
 import images from "./images.js"
+var active = 0; //Active element position
+const list = document.querySelector(".list") //get element with class list
 
-const list = document.querySelector(".list")
+/**
+ * Created the inner Html content
+ * using images imported which contains array of objects
+ * objects having title and previewImage
+ */
 const listContentWithHTML = images.map((image, index) => {
-    if(image.title.length <= 31){
+    if(image.title.length <= 31){   
         return(
             `<div class="list-content">
-                    <img style="width: 45px; height: 45px; object-fit: cover; display: inline-block; border-radius: 5px;" src=${image.previewImage} alt=""></img>
-                    <p style="display: inline-block; padding-left: 7px;">${image.title}</p>
+                    <img src=${image.previewImage} alt="${image.title}"></img>
+                    <p>${image.title}</p>
             </div>`
         );
-    }else{
+    }else{                          //Shorten the title with length more then 31
         return(
             `<div class="list-content">
-                    <img style="width: 45px; height: 45px; object-fit: cover; display: inline-block; border-radius: 5px;" src=${image.previewImage} alt=""></img>
-                    <p style="display: inline-block; padding-left: 7px;">${image.title.slice(0, 16) + "..." + image.title.slice(image.title.length - 16 + index)}</p>
+                    <img src=${image.previewImage} alt="${image.title}"></img>
+                    <p>${image.title.slice(0, 16) + "..." + image.title.slice(image.title.length - 16 + index)}</p>
             </div>`
         )
     }
 }).join(" ")
-console.log(listContentWithHTML);
-list.innerHTML = listContentWithHTML;
 
-const bigImg = document.querySelector("div.image img");
-bigImg.setAttribute("src", images[0].previewImage);
+// console.log(listContentWithHTML);
 
-const belowText = document.querySelector(".image p")
+list.innerHTML = listContentWithHTML; //Applied innerHtml to listContentWithHTML to list element
 
-var active = 0;
-const listContents = document.querySelectorAll('.list-content');
-console.log(listContents)
+const bigImg = document.querySelector("div.image img"); //get image element
+bigImg.setAttribute("src", images[active].previewImage); //set image url to current active element's url
+
+const belowText = document.querySelector(".image p"); //get below text element
+
+const listContents = document.querySelectorAll('.list-content'); //Get all children under .list-content class
+// console.log(listContents)
+
+/**
+ * Added Click Event Listener to all list items
+ * Remove active class from current active element
+ * Apply active class to clicked Element 
+ */
 listContents[active].classList.add("active")
 listContents.forEach((listContent, index) => {
     listContent.addEventListener("click", function(){
@@ -40,6 +53,11 @@ listContents.forEach((listContent, index) => {
     })
 })
 
+/**
+ * Added ArrowUp and ArrowDown Event Listener
+ * Remove active class from current active element
+ * Apply active class to next element if ArrowDown and previous if ArrowUp
+ */
 window.addEventListener("keydown", function(e){
     if(e.key === "ArrowDown"){
         listContents[active].classList.remove("active");
@@ -57,4 +75,4 @@ window.addEventListener("keydown", function(e){
     belowText.textContent = images[active].title;
 })
 
-console.log(images[3].title.length)
+// console.log(images[3].title.length)
