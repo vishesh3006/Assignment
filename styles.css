@@ -30,19 +30,35 @@ div.list-content {
   padding-left: 7px;
   padding-right: 7px;
   border-radius: 5px;
+  width: 283px;
 }
 
-div.list-content img {
-  width: 45px;
-  height: 45px;
-  object-fit: cover;
+/* span {
   display: inline-block;
-  border-radius: 5px;
-}
-
+  width: 235px;
+} */
 div.list-content p {
   display: inline-block;
   padding-left: 7px;
+  white-space: nowrap;
+  overflow: hidden;
+  /* word-break: break-all; */
+  text-overflow: clip;
+}
+
+div.list-content p:last-child {
+  padding-left: 0;
+  direction: rtl;
+  text-overflow: ellipsis;
+}
+
+div.list-content img {
+  height: 45px !important;
+  width: 45px !important;
+  min-width: 45px;
+  object-fit: cover;
+  display: inline-block;
+  border-radius: 5px;
 }
 
 /* Class added to active or selected Item */

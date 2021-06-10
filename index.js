@@ -8,21 +8,24 @@ const list = document.querySelector(".list") //get element with class list
  * objects having title and previewImage
  */
 const listContentWithHTML = images.map((image, index) => {
-    if(image.title.length <= 31){   
+    // if(image.title.length <= 31){   
         return(
             `<div class="list-content">
                     <img src=${image.previewImage} alt="${image.title}"></img>
-                    <p>${image.title}</p>
+                    
+                    <p>${image.title.slice(0, image.title.length/2)}</p>
+                    <p>${image.title.slice(image.title.length/2)}</p>
+                
             </div>`
         );
-    }else{                          //Shorten the title with length more then 31
-        return(
-            `<div class="list-content">
-                    <img src=${image.previewImage} alt="${image.title}"></img>
-                    <p>${image.title.slice(0, 16) + "..." + image.title.slice(image.title.length - 16 + index)}</p>
-            </div>`
-        )
-    }
+    // }else{                          //Shorten the title with length more then 31
+    //     return(
+    //         `<div class="list-content">
+    //                 <img src=${image.previewImage} alt="${image.title}"></img>
+    //                 <p>${image.title.slice(0, 16) + "..." + image.title.slice(image.title.length - 16 + index)}</p>
+    //         </div>`
+    //     )
+    // }
 }).join(" ")
 
 // console.log(listContentWithHTML);
