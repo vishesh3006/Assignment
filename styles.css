@@ -1,0 +1,29 @@
+body {
+  min-height: 100vh;
+  margin: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+#home {
+  display: flex;
+  padding-top: 2%;
+  padding-right: 10%;
+  padding-left: 10%;
+  justify-content: center;
+}
+
+div.list-content {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  padding-left: 7px;
+  border-radius: 5px;
+  /* background-color: #3251d7;
+  background-color: #0f52ba; */
+  /* color: #fff; */
+}
+
+.active {
+  color: #fff;
+  background-color: #0f52ba;
+}
