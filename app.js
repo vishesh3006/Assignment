@@ -3,7 +3,26 @@ import puppeteer from 'puppeteer';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import ejs from 'ejs';
-// import images from './public/js/images.js'
+import images from './public/js/images.js'
+
+function runScript() {
+    const section = document.querySelector('#home');
+    console.log(images)
+    const imagePreview = document.createElement('div');
+
+    const content = images.map((image, index) => {
+        return(
+            `<div class="content">
+                    <h2>${image.title}<h2>
+                    <img src=${image.previewImage} alt="${image.title}"></img>
+            </div>`
+        );
+    }).join(" ")
+
+    imagePreview.innerHTML = content;
+    section.innerHTML = "";
+    section.appendChild(imagePreview)
+}
 
 const app = express();
 app.set('view engine', 'ejs');
@@ -20,7 +39,7 @@ const pptr = async () => {
     const __filename = fileURLToPath(import.meta.url);
     const __dirname = path.dirname(__filename);
     const filePath = __dirname + '/public/js/index2.js'
-    await page.addScriptTag({path: filePath})
+    await page.addScriptTag({content: `${runScript}`})
 
     await page.evaluate(() => {
         document.querySelector("#hello").remove();
