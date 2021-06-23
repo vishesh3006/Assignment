@@ -1,0 +1,14 @@
+{
+  "name": "Assignment",
+  "version": "1.0.0",
+  "main": "app.js",
+  "type": "module",
+  "repository": "https://github.com/vishesh3006/Assignment.git",
+  "author": "Vishesh <vishesh.malhotra321@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "puppeteer": "^10.0.0"
+  }
+}
