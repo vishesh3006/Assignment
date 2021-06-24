@@ -17,9 +17,9 @@ const pptr = async () => {
     await page.goto('http://localhost:3000', {
       waitUntil: 'networkidle0',
     });
-    const __filename = fileURLToPath(import.meta.url);
-    const __dirname = path.dirname(__filename);
-    const filePath = __dirname + '/public/js/index2.js';
+    // const __filename = fileURLToPath(import.meta.url);
+    // const __dirname = path.dirname(__filename);
+    // const filePath = __dirname + '/public/js/index2.js';
     // await page.addScriptTag({type:'module', path: filePath})
 
     await page.evaluate(async (images) => {
