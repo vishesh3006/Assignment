@@ -4,35 +4,6 @@ import images from "./images.js";
 const urlSearchParams = new URLSearchParams(window.location.search);
 const params = Object.fromEntries(urlSearchParams.entries());
 console.log(params)
-// if(params.pdf){
-//     // document.querySelector('script').setAttribute('src', 'js/index2.js');
-//     const section = document.querySelector('#home');
-
-//     const imagePreview = document.createElement('div');
-
-//     const content = images.map((image, index) => {
-//         return(
-//             `<div class="content">
-//                     <h2 style={text-align: 'center';}>${image.title}<h2>
-//                     <img style={width:60vw; height:90vh;} src=${image.previewImage} alt="${image.title}"></img>
-//             </div>`
-//         );
-//     }).join(" ")
-
-//     imagePreview.innerHTML = content;
-
-//     const pdfButton = document.createElement('form');
-//     pdfButton.setAttribute('method', 'POST');
-//     pdfButton.setAttribute('action', '/');
-//     pdfButton.innerHTML = `
-//         <input type="submit" value="Download as PDF">
-//     `
-//     section.innerHTML = "";
-//     section.appendChild(imagePreview)
-    
-// }
-
-// else{
     var active = 0; //Active element position
 const list = document.querySelector(".list") //get element with class list
 
